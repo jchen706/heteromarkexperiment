@@ -42,7 +42,7 @@
 #define SRC_AES_AES_BENCHMARK_H_
 
 #include <string>
-#include "src/common/benchmark/benchmark.h"
+#include "./common/benchmark/benchmark.h"
 
 class AesBenchmark : public Benchmark {
  protected:

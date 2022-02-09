@@ -41,7 +41,7 @@
 #ifndef SRC_AES_CUDA_AES_CUDA_BENCHMARK_H_
 #define SRC_AES_CUDA_AES_CUDA_BENCHMARK_H_
 
-#include "src/aes/aes_benchmark.h"
+#include "aes_benchmark.h"
 #include "src/common/time_measurement/time_measurement.h"
 
 class AesCudaBenchmark : public AesBenchmark {

@@ -31,7 +31,7 @@
  *   DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/aes/cuda/aes_cuda_benchmark.h"
+#include "aes_cuda_benchmark.h"
 
 #include <cstring>
 #include <memory>
@@ -170,6 +170,7 @@ __global__ void aes_cuda(uint8_t *input, uint32_t *expanded_key, uint8_t *s) {
 }
 
 void AesCudaBenchmark::Run() {
+  cudaSetDevice(0);
   ExpandKey();
 
   cudaMemcpy(d_ciphertext_, plaintext_, text_length_, cudaMemcpyHostToDevice);
@@ -185,6 +186,8 @@ void AesCudaBenchmark::Run() {
   cpu_gpu_logger_->GPUOn();
   aes_cuda<<<grid_size, block_size>>>(d_ciphertext_, d_key_, d_s_);
 
+  cudaDeviceSynchronize();
+
   cudaMemcpy(ciphertext_, d_ciphertext_, text_length_, cudaMemcpyDeviceToHost);
 
   cpu_gpu_logger_->GPUOff();
@@ -195,4 +198,7 @@ void AesCudaBenchmark::Cleanup() {
   AesBenchmark::Cleanup();
   cudaFree(d_ciphertext_);
   cudaFree(d_key_);
+  
+  // added new stuff 
+
 }

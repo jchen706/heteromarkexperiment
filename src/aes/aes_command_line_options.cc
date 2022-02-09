@@ -38,7 +38,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/aes/aes_command_line_options.h"
+#include "./aes/aes_command_line_options.h"
 
 void AesCommandLineOptions::RegisterOptions() {
   BenchmarkCommandLineOptions::RegisterOptions();
