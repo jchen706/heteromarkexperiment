@@ -1,0 +1,539 @@
+Script started on 2022-02-10 06:13:13-0500
+(base) jchen706@boson:/data/jchen/Hetero-Mark/src/aes/cuda$ ./a.out -i ../../data/aes/teest.data -k ../../data/aes/key.data[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -i ../../data/aes/tes[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -i ../../data/aes/test[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -i ../../data/aes/test.[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -i ../../data/aes/test.d[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -i ../../data/aes/test.da[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct -i ../../data/aes/test.d[1@a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce -i ../../data/aes/test.[1@d[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cst -i ../../data/aes/tes[2@t.[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+Entering End
+ Inside TimeKeeper End 
+ text length 16
+ Grid Size 0 Block Size 64
+test: ../nptl/pthread_mutex_lock.c:81: __pthread_mutex_lock: Assertion `mutex->__data.__owner == 0' failed.
+Aborted (core dumped)
+(base) jchen706@boson:/data/jchen/Hetero-Mark/src/aes/cuda$ ./test -i ../../data/aes/tesst.data -k ../../data/aes/key.data[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksh run.sh 
+^Cnvcc error   : 'gcc' died due to signal 2 
+
+(base) jchen706@boson:/data/jchen/Hetero-Mark/src/aes/cuda$ sh run.sh [K[K[K[K[K[K[Ktest.sh 
+############
+
+
+RUNNING ../../data/aes/128KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 131072
+ Grid Size 128 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 131072
+ Grid Size 128 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 131072 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/16KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 16384
+ Grid Size 16 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 16384
+ Grid Size 16 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 16384 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/16MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 16777216
+ Grid Size 16384 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 16777216
+ Grid Size 16384 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 16777216 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/1GB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 803600384
+ Grid Size 784766 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 803600384
+ Grid Size 784766 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 803600384 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/1KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 1024
+ Grid Size 1 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 1024
+ Grid Size 1 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 1024 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/1MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 1048576
+ Grid Size 1024 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 1048576
+ Grid Size 1024 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 1048576 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/256KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 262144
+ Grid Size 256 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 262144
+ Grid Size 256 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 262144 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/2KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 2048
+ Grid Size 2 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 2048
+ Grid Size 2 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 2048 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/2MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 2097152
+ Grid Size 2048 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 2097152
+ Grid Size 2048 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 2097152 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/32KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 32768
+ Grid Size 32 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 32768
+ Grid Size 32 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 32768 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/32MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 33554432
+ Grid Size 32768 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 33554432
+ Grid Size 32768 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 33554432 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/4KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 4096
+ Grid Size 4 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 4096
+ Grid Size 4 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 4096 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/4MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 4194304
+ Grid Size 4096 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 4194304
+ Grid Size 4096 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 4194304 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/512KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 524288
+ Grid Size 512 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 524288
+ Grid Size 512 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 524288 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/64B.data
+Entering End
+ Inside TimeKeeper End 
+ text length 64
+ Grid Size 0 Block Size 64
+test: ../nptl/pthread_mutex_lock.c:81: __pthread_mutex_lock: Assertion `mutex->__data.__owner == 0' failed.
+Aborted (core dumped)
+############
+
+
+RUNNING ../../data/aes/64KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 65536
+ Grid Size 64 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 65536
+ Grid Size 64 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 65536 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/64MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 67108864
+ Grid Size 65536 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 67108864
+ Grid Size 65536 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 67108864 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/8KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 8192
+ Grid Size 8 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 8192
+ Grid Size 8 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 8192 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/8MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 8388608
+ Grid Size 8192 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 8388608
+ Grid Size 8192 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 8388608 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+(base) jchen706@boson:/data/jchen/Hetero-Mark/src/aes/cuda$ [K(base) jchen7066@boson:/data/jjchen/Hetero-Maark/src/aes/cudda$ [K[A[A[A[A(base) jchen706@boson:/data/jchen/Hetero-Mark/src/aes/cuda$  [K[A(base) jchen7066@boson:/data/jjchen/Hetero-Maark/src/aes/cudda$ sh test.sh  
+############
+
+
+RUNNING ../../data/aes/128KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 131072
+ Grid Size 128 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 131072
+ Grid Size 128 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 131072 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/16KB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 16384
+ Grid Size 16 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 16384
+ Grid Size 16 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 16384 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/16MB.data
+Entering End
+ Inside TimeKeeper End 
+ text length 16777216
+ Grid Size 16384 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+ text length 16777216
+ Grid Size 16384 Block Size 64
+Entering End
+ Inside TimeKeeper End 
+Passed. 16777216 bytes encrypted.
+Entering End
+ Inside TimeKeeper End 
+Entering End
+ Inside TimeKeeper End 
+free cleanup 
+free d_ciphertext_ 
+free d_key 
+Entering End
+ Inside TimeKeeper End 
+############
+
+
+RUNNING ../../data/aes/1GB.data
+^C
+(base) jchen706@boson:/data/jchen/Hetero-MMark/src/aes/cuda$ sh test.sh [1Prun[C[C[C[C./test -i ../../data/aees/test.data -k ../../data/aes/key.data[A[12Psh run.sh 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C^C
+(base) jchen706@boson:/data/jchen/Hetero-MMark/src/aes/cuda$ exit
+
+Script done on 2022-02-10 06:31:24-0500

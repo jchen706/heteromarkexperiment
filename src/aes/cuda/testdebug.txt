@@ -1,0 +1,110 @@
+Script started on 2022-02-09 19:12:42-0500
+(base) jchen706@boson:/data/jchen/Hetero-Mark/srcc/aes/cuda$ make[K[K[K[Ksh test.sh 
+clang version 10.0.1 (https://github.com/llvm/llvm-project.git ef32c611aa214dea855364efd7ba451ec5ec3f74)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /data/jchen/llvminstall/bin
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+Candidate multilib: .;@m64
+Selected multilib: .;@m64
+Found CUDA installation: /usr/local/cuda-10.1, version 10.1
+clang-10: [0;1;35mwarning: [0m-lcudart_static: 'linker' input unused [-Wunused-command-line-argument][0m
+clang-10: [0;1;35mwarning: [0m-ldl: 'linker' input unused [-Wunused-command-line-argument][0m
+clang-10: [0;1;35mwarning: [0m-lrt: 'linker' input unused [-Wunused-command-line-argument][0m
+clang-10: [0;1;35mwarning: [0margument unused during compilation: '-L/usr/local/cuda-10.1/lib64' [-Wunused-command-line-argument][0m
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple nvptx64-nvidia-cuda -aux-triple x86_64-unknown-linux-gnu -E -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fno-rounding-math -no-integrated-as -fcuda-is-device -mlink-builtin-bitcode /usr/local/cuda-10.1/nvvm/libdevice/libdevice.10.bc -target-feature +ptx64 -target-sdk-version=10.1 -target-cpu sm_61 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include/cuda_wrappers -internal-isystem /usr/local/cuda-10.1/include -include __clang_cuda_runtime_wrapper.h -I/data/jchen/googletest-release-1.8.0/googletest/include -I/data/jchen/open_source_template/runtime/threadPool/include -I/usr/local/cuda-10.1/targets/x86_64-linux/include -I. -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward -internal-isystem /usr/local/include -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /usr/local/include -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=c++11 -fdeprecated-macro -fno-dwarf-directory-asm -fno-autolink -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -fcolor-diagnostics -o aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.cui -x cuda aes_cuda_benchmark.cu
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+ignoring nonexistent directory "/include"
+ignoring duplicate directory "/usr/local/cuda-10.1/targets/x86_64-linux/include"
+  as it is a non-system directory that duplicates a system directory
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"
+ignoring duplicate directory "/usr/local/include"
+ignoring duplicate directory "/data/jchen/llvminstall/lib/clang/10.0.1/include"
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu"
+ignoring duplicate directory "/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /data/jchen/googletest-release-1.8.0/googletest/include
+ /data/jchen/open_source_template/runtime/threadPool/include
+ .
+ /data/jchen/llvminstall/lib/clang/10.0.1/include/cuda_wrappers
+ /usr/local/cuda-10.1/targets/x86_64-linux/include
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward
+ /usr/local/include
+ /data/jchen/llvminstall/lib/clang/10.0.1/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple nvptx64-nvidia-cuda -aux-triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fno-rounding-math -no-integrated-as -fcuda-is-device -mlink-builtin-bitcode /usr/local/cuda-10.1/nvvm/libdevice/libdevice.10.bc -target-feature +ptx64 -target-sdk-version=10.1 -target-cpu sm_61 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -std=c++11 -fdeprecated-macro -fno-dwarf-directory-asm -fno-autolink -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -fcolor-diagnostics -disable-llvm-passes -o aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.bc -x cuda-cpp-output aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.cui
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple nvptx64-nvidia-cuda -aux-triple x86_64-unknown-linux-gnu -S -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fno-rounding-math -no-integrated-as -fcuda-is-device -mlink-builtin-bitcode /usr/local/cuda-10.1/nvvm/libdevice/libdevice.10.bc -target-feature +ptx64 -target-sdk-version=10.1 -target-cpu sm_61 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -std=c++11 -fno-dwarf-directory-asm -fno-autolink -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -fcolor-diagnostics -o aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.s -x ir aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.bc
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+ "/usr/local/cuda-10.1/bin/ptxas" -m64 -O0 -v --gpu-name sm_61 --output-file aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.o aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.s
+ptxas info    : 3 bytes gmem
+ptxas info    : Compiling entry function '_Z8aes_cudaPhPjS_' for 'sm_61'
+ptxas info    : Function properties for _Z8aes_cudaPhPjS_
+    96 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 344 bytes cmem[0]
+ptxas info    : Function properties for _Z11SubBytesGpuPhS_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Function properties for _Z12ShiftRowsGpuPh
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Function properties for _Z13MixColumnsGpuPh
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Function properties for _Z14AddRoundKeyGpuPhPji
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ "/usr/local/cuda-10.1/bin/fatbinary" -64 --create aes_cuda_benchmark.cu-cuda-nvptx64-nvidia-cuda.fatbin --image=profile=sm_61,file=aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.o --image=profile=compute_61,file=aes_cuda_benchmark-cuda-nvptx64-nvidia-cuda-sm_61.s
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple x86_64-unknown-linux-gnu -target-sdk-version=10.1 -aux-triple nvptx64-nvidia-cuda -E -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include/cuda_wrappers -internal-isystem /usr/local/cuda-10.1/include -include __clang_cuda_runtime_wrapper.h -I/data/jchen/googletest-release-1.8.0/googletest/include -I/data/jchen/open_source_template/runtime/threadPool/include -I/usr/local/cuda-10.1/targets/x86_64-linux/include -I. -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0 -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward -internal-isystem /usr/local/include -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /usr/local/include -internal-isystem /data/jchen/llvminstall/lib/clang/10.0.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -fcolor-diagnostics -faddrsig -o aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.cui -x cuda aes_cuda_benchmark.cu
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+ignoring nonexistent directory "/include"
+ignoring duplicate directory "/usr/local/cuda-10.1/targets/x86_64-linux/include"
+  as it is a non-system directory that duplicates a system directory
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0"
+ignoring duplicate directory "/usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward"
+ignoring duplicate directory "/usr/local/include"
+ignoring duplicate directory "/data/jchen/llvminstall/lib/clang/10.0.1/include"
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu"
+ignoring duplicate directory "/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /data/jchen/googletest-release-1.8.0/googletest/include
+ /data/jchen/open_source_template/runtime/threadPool/include
+ .
+ /data/jchen/llvminstall/lib/clang/10.0.1/include/cuda_wrappers
+ /usr/local/cuda-10.1/targets/x86_64-linux/include
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/x86_64-linux-gnu/c++/7.5.0
+ /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/backward
+ /usr/local/include
+ /data/jchen/llvminstall/lib/clang/10.0.1/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple x86_64-unknown-linux-gnu -target-sdk-version=10.1 -aux-triple nvptx64-nvidia-cuda -emit-llvm-bc -emit-llvm-uselists -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -fcolor-diagnostics -disable-llvm-passes -fcuda-include-gpubinary aes_cuda_benchmark.cu-cuda-nvptx64-nvidia-cuda.fatbin -faddrsig -o aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.bc -x cuda-cpp-output aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.cui
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+ "/data/jchen/llvminstall/bin/clang-10" -cc1 -triple x86_64-unknown-linux-gnu -target-sdk-version=10.1 -aux-triple nvptx64-nvidia-cuda -S -save-temps=cwd -disable-free -main-file-name aes_cuda_benchmark.cu -mrelocation-model static -mthread-model posix -mframe-pointer=all -fmath-errno -fno-rounding-math -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -dwarf-column-info -fno-split-dwarf-inlining -debugger-tuning=gdb -v -resource-dir /data/jchen/llvminstall/lib/clang/10.0.1 -std=c++11 -fdebug-compilation-dir /data/jchen/Hetero-Mark/src/aes/cuda -ferror-limit 19 -fmessage-length 0 -pthread -fgnuc-version=4.2.1 -fobjc-runtime=gcc -fdiagnostics-show-option -fcolor-diagnostics -faddrsig -o aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.s -x ir aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.bc
+clang -cc1 version 10.0.1 based upon LLVM 10.0.1 default target x86_64-unknown-linux-gnu
+ "/data/jchen/llvminstall/bin/clang-10" -cc1as -triple x86_64-unknown-linux-gnu -filetype obj -main-file-name aes_cuda_benchmark.cu -target-cpu x86-64 -dwarf-version=4 -mrelocation-model static -mrelax-all -o aes_cuda_benchmark.o aes_cuda_benchmark-host-x86_64-unknown-linux-gnu.s
+(base) jchen706@boson:/data/jchen/Hetero-Mark/srcc/aes/cuda$ exit
+
+Script done on 2022-02-09 19:13:35-0500

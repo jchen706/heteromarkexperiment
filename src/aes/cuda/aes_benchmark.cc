@@ -282,13 +282,13 @@ uint32_t AesBenchmark::SubWord(uint32_t word) {
 }
 
 void AesBenchmark::Summarize() {
-  printf("Plaintext: ");
-  DumpText(plaintext_);
+  // printf("Plaintext: ");
+  // DumpText(plaintext_);
 
-  DumpKey();
+  // DumpKey();
 
-  printf("Ciphertext: ");
-  DumpText(ciphertext_);
+  // printf("Ciphertext: ");
+  // DumpText(ciphertext_);
 }
 
 void AesBenchmark::Cleanup() {

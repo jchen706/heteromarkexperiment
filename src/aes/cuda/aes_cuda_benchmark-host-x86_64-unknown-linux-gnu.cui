@@ -55880,12 +55880,19 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 
+
+
+
 void AesCudaBenchmark::Initialize() {
   AesBenchmark::Initialize();
 
   cudaMalloc(&d_ciphertext_, text_length_ * sizeof(uint8_t));
   cudaMalloc(&d_key_, kExpandedKeyLengthInBytes);
   cudaMalloc(&d_s_, 256 * sizeof(uint8_t));
+
+
+
+
 }
 
 __attribute__((device)) void AddRoundKeyGpu(uint8_t *state, uint32_t *exp_key, int offset) {
@@ -55990,7 +55997,10 @@ __attribute__((global)) void aes_cuda(uint8_t *input, uint32_t *expanded_key, ui
 
   uint tid = blockIdx.x * blockDim.x + threadIdx.x;
 
+
+
   for (int i = 0; i < 16; i++) {
+
     state[i] = input[tid * 16 + i];
   }
 
@@ -56023,20 +56033,55 @@ void AesCudaBenchmark::Run() {
 
   int num_blocks = text_length_ / 16;
 
+  std::cout << " text length " << text_length_ << std::endl;
+
   dim3 grid_size(static_cast<size_t>(num_blocks / 64.00));
+
   dim3 block_size(64);
 
   cpu_gpu_logger_->GPUOn();
+
+
+  std::cout << " Grid Size " << grid_size.x << " Block Size " << block_size.x << std::endl;
+
+
+
+
+
+
+
   aes_cuda<<<grid_size, block_size>>>(d_ciphertext_, d_key_, d_s_);
+
+  cudaDeviceSynchronize();
+
+
+  cudaError_t error = cudaGetLastError();
+  if(error != cudaSuccess)
+  {
+
+    printf("CUDA error: %s\n", cudaGetErrorString(error));
+    exit(-1);
+  }
 
   cudaMemcpy(ciphertext_, d_ciphertext_, text_length_, cudaMemcpyDeviceToHost);
 
+
+
+
+
   cpu_gpu_logger_->GPUOff();
-  cpu_gpu_logger_->Summarize();
+
 }
 
 void AesCudaBenchmark::Cleanup() {
+
   AesBenchmark::Cleanup();
+
   cudaFree(d_ciphertext_);
+
   cudaFree(d_key_);
+
+
+
+
 }

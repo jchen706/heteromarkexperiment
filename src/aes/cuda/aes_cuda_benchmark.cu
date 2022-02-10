@@ -36,6 +36,9 @@
 #include <cstring>
 #include <memory>
 #include <string>
+#include <iostream>
+#include <stdio.h>
+
 
 void AesCudaBenchmark::Initialize() {
   AesBenchmark::Initialize();
@@ -147,7 +150,10 @@ __global__ void aes_cuda(uint8_t *input, uint32_t *expanded_key, uint8_t *s) {
 
   uint tid = blockIdx.x * blockDim.x + threadIdx.x;
 
+  // printf(" tid: %u \n", tid);
+
   for (int i = 0; i < 16; i++) {
+    // printf(" tid: %u , %u  input: %u \n", tid, tid * 16 + i, input[tid * 16 + i]);
     state[i] = input[tid * 16 + i];
   }
 
@@ -180,25 +186,54 @@ void AesCudaBenchmark::Run() {
 
   int num_blocks = text_length_ / 16;
 
+  std::cout << " text length " << text_length_  << std::endl;
+
   dim3 grid_size(static_cast<size_t>(num_blocks / 64.00));
+
   dim3 block_size(64);
 
   cpu_gpu_logger_->GPUOn();
+
+
+  std::cout << " Grid Size " << grid_size.x  << " Block Size " << block_size.x << std::endl;
+
+
+  // cpu_gpu_logger_->Summarize();
+
+  // std::cout << " Grid Size " << grid_size.x  << " Block Size " << block_size.x << std::endl;
+
+
   aes_cuda<<<grid_size, block_size>>>(d_ciphertext_, d_key_, d_s_);
 
   cudaDeviceSynchronize();
 
+  
+  cudaError_t error = cudaGetLastError();
+  if(error != cudaSuccess)
+  {
+    // print the CUDA error message and exit
+    printf("CUDA error: %s\n", cudaGetErrorString(error));
+    exit(-1);
+  }
+
   cudaMemcpy(ciphertext_, d_ciphertext_, text_length_, cudaMemcpyDeviceToHost);
 
+
+  // printf("free d_key \n");
+  // cudaError_t error = cudaFree(d_key_);
+
   cpu_gpu_logger_->GPUOff();
-  cpu_gpu_logger_->Summarize();
+  //cpu_gpu_logger_->Summarize();
 }
 
 void AesCudaBenchmark::Cleanup() {
+  // printf("free cleanup \n");
   AesBenchmark::Cleanup();
+  // printf("free d_ciphertext_ \n");
   cudaFree(d_ciphertext_);
+  // printf("free d_key \n");
   cudaFree(d_key_);
-  
-  // added new stuff 
-
+  // if(d_key_ == NULL) {
+  //   printf("free d_key is null \n");
+  // }
 }

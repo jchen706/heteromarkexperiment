@@ -58,7 +58,11 @@ int main(int argc, char const *argv[]) {
   options.ConfigureAesBenchmark(benchmark.get());
   options.ConfigureBenchmarkRunner(&runner);
 
+  runner.SetVerificationMode(true);
   runner.Run();
+ 
+
+  
 
   return 0;
 }
