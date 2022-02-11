@@ -40,8 +40,8 @@
 #include "src/common/benchmark/benchmark_runner.h"
 #include "src/common/time_measurement/time_measurement.h"
 #include "src/common/time_measurement/time_measurement_impl.h"
-#include "src/ep/cuda/ep_cuda_benchmark.h"
-#include "src/ep/ep_command_line_options.h"
+#include "ep_cuda_benchmark.h"
+#include "ep_command_line_options.h"
 
 int main(int argc, const char **argv) {
   std::unique_ptr<EpCudaBenchmark> benchmark(new EpCudaBenchmark());
@@ -56,5 +56,6 @@ int main(int argc, const char **argv) {
   options.ConfigureEpBenchmark(benchmark.get());
   options.ConfigureBenchmarkRunner(&runner);
 
+  runner.SetVerificationMode(true);
   runner.Run();
 }

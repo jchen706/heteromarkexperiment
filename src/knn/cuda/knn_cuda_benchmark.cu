@@ -41,9 +41,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include "src/knn/cuda/knn_cpu_partitioner.h"
-#include "src/knn/cuda/knn_cuda_benchmark.h"
-#include "src/knn/cuda/knn_gpu_partitioner.h"
+#include "knn_cpu_partitioner.h"
+#include "knn_cuda_benchmark.h"
+#include "knn_gpu_partitioner.h"
 
 __global__ void knn_cuda(LatLong *latLong, float *d_distances,
                          int num_gpu_records, int num_records, float lat,
@@ -67,6 +67,7 @@ __global__ void knn_cuda(LatLong *latLong, float *d_distances,
 }
 
 void KnnCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   KnnBenchmark::Initialize();
   cudaMallocManaged(&h_locations_, sizeof(LatLong) * num_records_);
   cudaMallocManaged(&h_distances_, sizeof(float) * num_records_);

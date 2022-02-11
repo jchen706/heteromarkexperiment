@@ -34,7 +34,7 @@
 #define SRC_KMEANS_CUDA_KMEANS_CUDA_BENCHMARK_H_
 
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/kmeans/kmeans_benchmark.h"
+#include "kmeans_benchmark.h"
 
 class KmeansCudaBenchmark : public KmeansBenchmark {
  private:

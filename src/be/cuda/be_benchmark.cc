@@ -37,7 +37,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/be/be_benchmark.h"
+#include "be_benchmark.h"
 #include <cstdio>
 #include <cstdlib>
 

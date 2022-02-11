@@ -41,7 +41,7 @@
 #define SRC_PR_CUDA_PR_CUDA_BENCHMARK_H_
 
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/pr/pr_benchmark.h"
+#include "pr_benchmark.h"
 
 class PrCudaBenchmark : public PrBenchmark {
  private:

@@ -41,7 +41,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <cstdlib>
-#include "src/kmeans/cuda/kmeans_cuda_benchmark.h"
+#include "kmeans_cuda_benchmark.h"
 
 __global__ void kmeans_swap_cuda(float *feature, float *feature_swap,
                                  int npoints, int nfeatures) {
@@ -82,6 +82,7 @@ __global__ void kmeans_compute_cuda(float *feature, float *clusters,
 }
 
 void KmeansCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   KmeansBenchmark::Initialize();
 
   InitializeBuffers();

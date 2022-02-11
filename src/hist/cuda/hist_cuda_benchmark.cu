@@ -40,7 +40,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include "src/hist/cuda/hist_cuda_benchmark.h"
+#include "hist_cuda_benchmark.h"
 
 __global__ void Histogram(uint32_t *pixels, uint32_t *histogram,
                           uint32_t num_colors, uint32_t num_pixels) {
@@ -75,6 +75,7 @@ __global__ void Histogram(uint32_t *pixels, uint32_t *histogram,
 }
 
 void HistCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   HistBenchmark::Initialize();
 
   cudaMalloc(&d_pixels_, num_pixel_ * sizeof(uint32_t));
@@ -87,6 +88,7 @@ void HistCudaBenchmark::Run() {
   cudaMemset(d_histogram_, 0, num_color_ * sizeof(uint32_t));
   cpu_gpu_logger_->GPUOn();
   Histogram<<<8192 / 64, 64>>>(d_pixels_, d_histogram_, num_color_, num_pixel_);
+  cudaDeviceSynchronize();
   cudaMemcpy(histogram_, d_histogram_, num_color_ * sizeof(uint32_t),
              cudaMemcpyDeviceToHost);
   cpu_gpu_logger_->GPUOff();

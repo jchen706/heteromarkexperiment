@@ -37,13 +37,14 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/pr/cuda/pr_cuda_benchmark.h"
+#include "pr_cuda_benchmark.h"
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 
 void PrCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   PrBenchmark::Initialize();
 
   cudaMalloc(&device_row_offsets, (num_nodes_ + 1) * sizeof(uint32_t));
@@ -101,6 +102,7 @@ void PrCudaBenchmark::Run() {
                                          device_mtx_2, device_mtx_1);
     }
   }
+  cudaDeviceSynchronize();
 
   if (i % 2 != 0) {
     cudaMemcpy(page_rank_, device_mtx_1, num_nodes_ * sizeof(float),

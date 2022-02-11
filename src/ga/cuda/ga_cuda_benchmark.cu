@@ -37,7 +37,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/ga/cuda/ga_cuda_benchmark.h"
+#include "ga_cuda_benchmark.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -73,6 +73,7 @@ __global__ void ga_cuda(char *device_target, char *device_query,
 }
 
 void GaCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   matches_.clear();
   GaBenchmark::Initialize();
   coarse_match_result_ = new char[target_sequence_.size()]();

@@ -37,7 +37,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/ep/cuda/ep_cuda_benchmark.h"
+#include "ep_cuda_benchmark.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -45,6 +45,7 @@
 #include <vector>
 
 void EpCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   EpBenchmark::Initialize();
   cudaMalloc(&d_island_, population_ / 2 * sizeof(Creature));
   cudaMalloc(&d_fitness_func_, kNumVariables * sizeof(double));

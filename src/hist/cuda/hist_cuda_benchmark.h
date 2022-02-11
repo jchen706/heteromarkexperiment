@@ -41,7 +41,7 @@
 #define SRC_HIST_CUDA_HIST_CUDA_BENCHMARK_H_
 
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/hist/hist_benchmark.h"
+#include "hist_benchmark.h"
 
 class HistCudaBenchmark : public HistBenchmark {
  private:

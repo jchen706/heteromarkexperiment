@@ -42,7 +42,7 @@
 
 #include <vector>
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/ep/ep_benchmark.h"
+#include "ep_benchmark.h"
 
 class EpCudaBenchmark : public EpBenchmark {
  private:

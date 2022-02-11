@@ -42,7 +42,7 @@
 #define SRC_FIR_CUDA_FIR_CUDA_BENCHMARK_H_
 
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/fir/fir_benchmark.h"
+#include "fir_benchmark.h"
 
 class FirCudaBenchmark : public FirBenchmark {
  private:

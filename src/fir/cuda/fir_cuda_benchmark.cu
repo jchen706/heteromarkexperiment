@@ -38,7 +38,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/fir/cuda/fir_cuda_benchmark.h"
+#include "fir_cuda_benchmark.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -62,6 +62,7 @@ __global__ void fir_cuda(float *input, float *output, float *coeff,
 }
 
 void FirCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   FirBenchmark::Initialize();
   InitializeBuffers();
   InitializeData();

@@ -41,7 +41,7 @@
 #define SRC_GA_CUDA_GA_CUDA_BENCHMARK_H_
 
 #include "src/common/time_measurement/time_measurement.h"
-#include "src/ga/ga_benchmark.h"
+#include "ga_benchmark.h"
 
 class GaCudaBenchmark : public GaBenchmark {
  private:

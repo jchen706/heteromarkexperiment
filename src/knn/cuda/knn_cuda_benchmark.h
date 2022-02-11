@@ -40,7 +40,7 @@
 #ifndef SRC_KNN_CUDA_KNN_CUDA_BENCHMARK_H_
 #define SRC_KNN_CUDA_KNN_CUDA_BENCHMARK_H_
 
-#include "src/knn/knn_benchmark.h"
+#include "knn_benchmark.h"
 
 #include <cuda_runtime.h>
 

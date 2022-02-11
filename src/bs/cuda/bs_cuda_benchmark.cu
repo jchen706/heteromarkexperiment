@@ -38,7 +38,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/bs/cuda/bs_cuda_benchmark.h"
+#include "bs_cuda_benchmark.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -96,7 +96,9 @@ __global__ void bs_cuda(float *rand_array, float *d_call_price_,
 }
 
 void BsCudaBenchmark::Initialize() {
+  cudaSetDevice(0);
   BsBenchmark::Initialize();
+  
 
   cudaMalloc(&d_rand_array_, num_tiles_ * tile_size_ * sizeof(float));
   cudaMalloc(&d_call_price_, num_tiles_ * tile_size_ * sizeof(float));

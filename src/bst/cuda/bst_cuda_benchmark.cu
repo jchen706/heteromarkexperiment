@@ -40,7 +40,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include "src/bst/cuda/bst_cuda_benchmark.h"
+#include "bst_cuda_benchmark.h"
 
 __global__ void bst_cuda(void *tree_root, void *dev_start_node,
                          uint32_t gpu_nodes) {

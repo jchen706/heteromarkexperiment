@@ -40,7 +40,7 @@
 #ifndef SRC_BS_CUDA_BS_CUDA_BENCHMARK_H_
 #define SRC_BS_CUDA_BS_CUDA_BENCHMARK_H_
 
-#include "src/bs/bs_benchmark.h"
+#include "bs_benchmark.h"
 
 #include <cuda_runtime.h>
 

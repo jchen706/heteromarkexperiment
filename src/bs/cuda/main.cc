@@ -37,8 +37,8 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/bs/bs_command_line_options.h"
-#include "src/bs/cuda/bs_cuda_benchmark.h"
+#include "bs_command_line_options.h"
+#include "bs_cuda_benchmark.h"
 #include "src/common/benchmark/benchmark_runner.h"
 #include "src/common/time_measurement/time_measurement.h"
 #include "src/common/time_measurement/time_measurement_impl.h"
@@ -54,5 +54,6 @@ int main(int argc, const char **argv) {
   options.ConfigureBsBenchmark(benchmark.get());
   options.ConfigureBenchmarkRunner(&runner);
 
+  runner.SetVerificationMode(true);
   runner.Run();
 }
