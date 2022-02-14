@@ -101,6 +101,16 @@ void PrCudaBenchmark::Run() {
                                          device_column_numbers, device_values,
                                          device_mtx_2, device_mtx_1);
     }
+    cudaDeviceSynchronize();
+    cudaError_t error = cudaGetLastError();
+    if(error != cudaSuccess)
+    {
+      // print the CUDA error message and exit
+      printf("CUDA error: %s\n", cudaGetErrorString(error));
+      exit(-1);
+    }
+
+
   }
   cudaDeviceSynchronize();
 
