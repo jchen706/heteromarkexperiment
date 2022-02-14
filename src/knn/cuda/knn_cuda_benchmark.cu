@@ -92,8 +92,8 @@ void KnnCudaBenchmark::Run() {
 
   knn_cuda<<<grid_size, block_size>>>(
       h_locations_, h_distances_, num_gpu_records, num_records_, latitude_,
-      longitude_, reinterpret_cast<int *> gpu_worklist_,
-      reinterpret_cast<int *> cpu_worklist_);
+      longitude_, reinterpret_cast<int *> (gpu_worklist_),
+      reinterpret_cast<int *>(cpu_worklist_));
   KnnCPU(h_locations_, h_distances_, num_records_, num_gpu_records, latitude_,
          longitude_, cpu_worklist_, gpu_worklist_);
   cudaDeviceSynchronize();
@@ -103,7 +103,7 @@ void KnnCudaBenchmark::Run() {
   }
 
   // find the resultsCount least distances
-  findLowest(records_, h_distances_, num_records_, k_value_);
+  findLowest(&records_, h_distances_, num_records_, k_value_);
 
   for (int i = 0; i < k_value_; i++) {
     printf("%s --> Distance=%f\n", records_[i].recString, records_[i].distance);
