@@ -81,8 +81,16 @@ __global__ void bst_cuda(void *tree_root, void *dev_start_node,
     tmp_mutex = &tmp_parent->mutex_node;
     expected = UM_MUTEX_UNLOCK;
 
-    exFlag = atomicCAS_system(reinterpret_cast<int *>(&tmp_mutex->count),
-                              expected, 1);
+    // changes here 
+
+
+    // exFlag = atomicCAS_system((int *) &tmp_mutex->count,
+    //                           expected, 1);
+    exFlag = *(int*)&tmp_mutex->count;
+    if(*(int*)&tmp_mutex->count == expected) { 
+        *(int*)&tmp_mutex->count = 1;
+    }
+    
 
     // If Parent node lock is successful
     if (exFlag == UM_MUTEX_UNLOCK) {
@@ -110,16 +118,26 @@ __global__ void bst_cuda(void *tree_root, void *dev_start_node,
 
       expected = UM_MUTEX_LOCK;
 
-      atomicCAS_system(reinterpret_cast<int *>(&tmp_mutex->count), expected, 0);
+      // compare_exchange_strong()
+      // atomicCAS_system((int *)&tmp_mutex->count, expected, 0);
+      if(*(int*)&tmp_mutex->count ==  UM_MUTEX_LOCK) {
+        *(int*)&tmp_mutex->count = 0;
+      }
+
+
+      // normal add
     }
 
-    __threadfence_system();
+    //__threadfence_system();
+    
+    __syncthreads();
   } while (!done);
 }
 
 void BstCudaBenchmark::Initialize() {
   BstBenchmark::Initialize();
-  cudaMallocManaged(&tree_buffer_, sizeof(Node) * total_nodes_);
+  cudaSetDevice(0);
+  cudaMalloc(&tree_buffer_, sizeof(Node) * total_nodes_);
   InitializeNodes(tree_buffer_, total_nodes_, seed_);
   root_ = MakeBinaryTree(init_tree_insert_, tree_buffer_);
 }
@@ -137,6 +155,8 @@ void BstCudaBenchmark::Run() {
       reinterpret_cast<void *>(tree_buffer_ + device_start_node),
       device_nodes_);
 
+  // cudaDeviceSynchronize();
+
   uint32_t offset = 0;
   printf("Offset is %d \n", offset);
   for (int64_t k = 0; k < host_nodes_; k++) {
@@ -145,6 +165,9 @@ void BstCudaBenchmark::Run() {
 
   cudaDeviceSynchronize();
   printf("Gpu done \n");
+  if(tree_buffer_ == NULL) {
+    printf(" tree buffer is null \n");
+  }
   uint32_t actual_nodes = CountNodes(tree_buffer_);
 
   printf("Number of actual nodes are %d \n", actual_nodes);

@@ -37,7 +37,7 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/be/be_command_line_options.h"
+#include "be_command_line_options.h"
 
 void BeCommandLineOptions::RegisterOptions() {
   BenchmarkCommandLineOptions::RegisterOptions();

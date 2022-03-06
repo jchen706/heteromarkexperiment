@@ -42,6 +42,8 @@
 
 void AesCudaBenchmark::Initialize() {
   AesBenchmark::Initialize();
+  cudaSetDevice(0);
+
 
   cudaMalloc(&d_ciphertext_, text_length_ * sizeof(uint8_t));
   cudaMalloc(&d_key_, kExpandedKeyLengthInBytes);
@@ -148,9 +150,10 @@ __device__ void MixColumnsGpu(uint8_t *state) {
 __global__ void aes_cuda(uint8_t *input, uint32_t *expanded_key, uint8_t *s) {
   uint8_t state[16];
 
-  uint tid = blockIdx.x * blockDim.x + threadIdx.x;
+  uint tid = blockIdx.x * blockDim.x +  threadIdx.x;
 
-  // printf(" tid: %u \n", tid);
+  printf(" tid: %u bidx %d, bdimx %d, thidx %d\n", tid, blockIdx.x,  blockDim.x,   threadIdx.x);
+  printf(" address input %p \n", (void*) &expanded_key);
 
   for (int i = 0; i < 16; i++) {
     // printf(" tid: %u , %u  input: %u \n", tid, tid * 16 + i, input[tid * 16 + i]);
@@ -176,7 +179,6 @@ __global__ void aes_cuda(uint8_t *input, uint32_t *expanded_key, uint8_t *s) {
 }
 
 void AesCudaBenchmark::Run() {
-  cudaSetDevice(0);
   ExpandKey();
 
   cudaMemcpy(d_ciphertext_, plaintext_, text_length_, cudaMemcpyHostToDevice);
@@ -188,7 +190,9 @@ void AesCudaBenchmark::Run() {
 
   std::cout << " text length " << text_length_  << std::endl;
 
-  dim3 grid_size(static_cast<size_t>(num_blocks / 64.00));
+  // dim3 grid_size(static_cast<size_t>(num_blocks / 64.00));
+  dim3 grid_size(1);
+
 
   dim3 block_size(64);
 
@@ -202,10 +206,15 @@ void AesCudaBenchmark::Run() {
 
   // std::cout << " Grid Size " << grid_size.x  << " Block Size " << block_size.x << std::endl;
 
+  printf("Original address input %p \n", (void*)&d_key_);
+
 
   aes_cuda<<<grid_size, block_size>>>(d_ciphertext_, d_key_, d_s_);
 
   cudaDeviceSynchronize();
+
+  printf("After Original address input %p \n", (void*)&d_key_);
+
 
   
   cudaError_t error = cudaGetLastError();

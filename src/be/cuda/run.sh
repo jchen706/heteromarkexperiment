@@ -22,7 +22,7 @@ llc --relocation-model=pic --filetype=obj  be_benchmark.bc
 COMMON="./objectfiles/*.o"
 
 
-g++ -g -std=c++14 -Wno-uninitialized -Wall -L/data/jchen/open_source_template/build/runtime  -L/data/jchen/open_source_template/build/runtime/threadPool -o test -fPIC -no-pie ${COMMON} be_command_line_options.o be_benchmark.o main.o host.o kernel.o -lc -lx86Runtime -lthreadPool -lpthread
+g++ -g -std=c++11 -Wno-uninitialized -Wall  -I/data/jchen/opencv3.4/include/opencv4/ -L/data/jchen/opencv3.4/lib -L/data/jchen/open_source_template/build/runtime  -L/data/jchen/open_source_template/build/runtime/threadPool -o test -fPIC -no-pie ${COMMON} be_command_line_options.o be_benchmark.o main.o host.o kernel.o -lc  -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_video -lz -lx86Runtime -lthreadPool -lpthread
 
 
 

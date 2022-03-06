@@ -159,10 +159,41 @@ Node *BstBenchmark::MakeBinaryTree(uint32_t num_nodes, Node *inroot) {
 
 uint32_t BstBenchmark::CountNodes(Node *root) {
   uint32_t count = 0;
-  if (root) count = 1;
+  printf(" count is nodes \n");
+
+  if(!root) {
+     printf(" root is null count %d\n", count);
+  }
+  printf(" before root \n");
+  if(root == 0) {
+    printf(" root is null \n ");
+  }
+  printf(" before 2 root %p \n", (void*) &root);
+
+  if (root) {
+    count = 1;
+    printf(" r %ld \n", root->value);
+  } else {
+    printf(" no root \n");
+  }
+
+  printf(" before left \n");
+
+  if(root->left == NULL) {
+     printf(" root left is null count %d\n", count);
+  } else {
+    printf(" here not null left \n");
+  }
+
+  printf(" after left \n");
 
   if (root->left) count += CountNodes(root->left);
 
+  printf(" before right \n");
+
+   if(!root->right) {
+     printf(" root right is null count %d\n", count);
+  }
   if (root->right) count += CountNodes(root->right);
 
   return count;

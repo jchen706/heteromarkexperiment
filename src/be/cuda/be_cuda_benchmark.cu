@@ -40,7 +40,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <thread>
-#include "src/be/cuda/be_cuda_benchmark.h"
+#include "be_cuda_benchmark.h"
 #include "src/common/time_measurement/time_measurement_impl.h"
 
 void BeCudaBenchmark::Initialize() {
@@ -148,8 +148,8 @@ void BeCudaBenchmark::GPUThread() {
 void BeCudaBenchmark::ExtractAndEncode(uint8_t *frame) {
   uint32_t num_pixels = width_ * height_;
 
-  cudaMemcpyAsync(d_frame_, frame, num_pixels * channel_ * sizeof(uint8_t),
-                  cudaMemcpyHostToDevice, stream_);
+  cudaMemcpy(d_frame_, frame, num_pixels * channel_ * sizeof(uint8_t),
+                  cudaMemcpyHostToDevice);
 
   dim3 block_size(64);
   dim3 grid_size((num_pixels * channel_ + block_size.x - 1) / block_size.x);
@@ -159,9 +159,9 @@ void BeCudaBenchmark::ExtractAndEncode(uint8_t *frame) {
       d_frame_, d_bg_, d_fg_, width_, height_, channel_, threshold_, alpha_);
   cpu_gpu_logger_->GPUOff();
 
-  cudaMemcpyAsync(foreground_.data(), d_fg_,
+  cudaMemcpy(foreground_.data(), d_fg_,
                   num_pixels * channel_ * sizeof(uint8_t),
-                  cudaMemcpyDeviceToHost, stream_);
+                  cudaMemcpyDeviceToHost);
   cudaStreamSynchronize(stream_);
   delete[] frame;
   if (generate_output_) {

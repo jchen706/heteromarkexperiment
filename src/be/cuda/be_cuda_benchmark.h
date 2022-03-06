@@ -45,7 +45,7 @@
 #include <mutex>
 #include <queue>
 #include <thread>
-#include "src/be/be_benchmark.h"
+#include "be_benchmark.h"
 #include "src/common/time_measurement/time_measurement.h"
 
 class BeCudaBenchmark : public BeBenchmark {

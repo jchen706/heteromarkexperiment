@@ -69,10 +69,10 @@ __global__ void knn_cuda(LatLong *latLong, float *d_distances,
 void KnnCudaBenchmark::Initialize() {
   cudaSetDevice(0);
   KnnBenchmark::Initialize();
-  cudaMallocManaged(&h_locations_, sizeof(LatLong) * num_records_);
-  cudaMallocManaged(&h_distances_, sizeof(float) * num_records_);
-  cudaMallocManaged(&cpu_worklist_, sizeof(std::atomic_uint));
-  cudaMallocManaged(&gpu_worklist_, sizeof(std::atomic_uint));
+  cudaMalloc(&h_locations_, sizeof(LatLong) * num_records_);
+  cudaMalloc(&h_distances_, sizeof(float) * num_records_);
+  cudaMalloc(&cpu_worklist_, sizeof(std::atomic_uint));
+  cudaMalloc(&gpu_worklist_, sizeof(std::atomic_uint));
   for (int i = 0; i < num_records_; i++) {
     h_locations_[i].lat = locations_.at(i).lat;
     h_locations_[i].lng = locations_.at(i).lng;

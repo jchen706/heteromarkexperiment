@@ -42,7 +42,7 @@
 
 #include <string>
 
-#include "src/be/be_benchmark.h"
+#include "be_benchmark.h"
 #include "src/common/command_line_option/benchmark_command_line_options.h"
 
 class BeCommandLineOptions : public BenchmarkCommandLineOptions {

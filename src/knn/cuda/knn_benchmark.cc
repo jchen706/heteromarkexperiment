@@ -89,9 +89,11 @@ int KnnBenchmark::loadData(std::string file, std::vector<Record> *records,
       substr[5] = '\0';
       latLong.lat = atof(substr);
 
+      printf("lat %f \n", latLong.lat);
       for (i = 0; i < 5; i++) substr[i] = *(record.recString + i + 33);
       substr[5] = '\0';
       latLong.lng = atof(substr);
+      printf("long %f \n", latLong.lng);
 
       locations->push_back(latLong);
       records->push_back(record);
@@ -100,6 +102,7 @@ int KnnBenchmark::loadData(std::string file, std::vector<Record> *records,
     fclose(fp);
   }
   fclose(flist);
+  // exit(1);
   return recNum;
 }
 

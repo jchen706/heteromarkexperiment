@@ -53,6 +53,6 @@ int main(int argc, const char **argv) {
   options.Parse(argc, argv);
   options.ConfigureKnnBenchmark(benchmark.get());
   options.ConfigureBenchmarkRunner(&runner);
-
+  runner.SetVerificationMode(true);
   runner.Run();
 }

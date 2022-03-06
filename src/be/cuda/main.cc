@@ -37,8 +37,9 @@
  * DEALINGS WITH THE SOFTWARE.
  */
 
-#include "src/be/be_command_line_options.h"
-#include "src/be/cuda/be_cuda_benchmark.h"
+#include "be_command_line_options.h"
+#include "be_cuda_benchmark.h"
+#include "opencv2/videoio.hpp"
 #include "src/common/benchmark/benchmark_runner.h"
 #include "src/common/time_measurement/time_measurement.h"
 #include "src/common/time_measurement/time_measurement_impl.h"

@@ -1,0 +1,1 @@
+./test -i ../knnhelp.data -k 2

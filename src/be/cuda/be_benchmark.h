@@ -40,7 +40,7 @@
 #ifndef SRC_BE_BE_BENCHMARK_H_
 #define SRC_BE_BE_BENCHMARK_H_
 
-#include <opencv2/opencv.hpp>
+#include "/data/jchen/opencv3.4/include/opencv4/opencv2/opencv.hpp"
 
 #include <string>
 #include <vector>

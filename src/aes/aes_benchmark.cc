@@ -31,7 +31,7 @@
  *   DEALINGS WITH THE SOFTWARE.
  */
 
-#include "./aes/aes_benchmark.h"
+#include "src/aes/aes_benchmark.h"
 #include <inttypes.h>
 #include <cstdio>
 #include <cstring>

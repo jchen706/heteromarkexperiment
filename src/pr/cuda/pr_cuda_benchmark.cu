@@ -110,7 +110,6 @@ void PrCudaBenchmark::Run() {
       exit(-1);
     }
 
-
   }
   cudaDeviceSynchronize();
 

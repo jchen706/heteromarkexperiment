@@ -57,7 +57,6 @@ void EpCudaBenchmark::Run() {
   if (pipelined_) {
     PipelinedRun();
   } else {
-    printf(" normal use \n");
     NormalRun();
   }
   cpu_gpu_logger_->Summarize();
@@ -66,8 +65,6 @@ void EpCudaBenchmark::Run() {
 void EpCudaBenchmark::PipelinedRun() {
   seed_ = kSeedInitValue;
   ReproduceInIsland(&islands_1_);
-
-
   for (uint32_t i = 0; i < max_generation_; i++) {
     std::thread t1(&EpCudaBenchmark::ReproduceInIsland, this, &islands_2_);
     std::thread t2(&EpCudaBenchmark::EvaluateGpu, this, &islands_1_);
@@ -139,7 +136,6 @@ void EpCudaBenchmark::EvaluateGpu(std::vector<Creature> *island) {
   cpu_gpu_logger_->GPUOn();
   Evaluate_Kernel<<<grid_size, block_size>>>(d_island_, d_fitness_func_,
                                              population_ / 2, kNumVariables);
-  
   cudaMemcpy(island->data(), d_island_, population_ / 2 * sizeof(Creature),
              cudaMemcpyDeviceToHost);
   cpu_gpu_logger_->GPUOff();
@@ -162,7 +158,6 @@ void EpCudaBenchmark::MutateGpu(std::vector<Creature> *island) {
   cpu_gpu_logger_->GPUOn();
   Mutate_Kernel<<<grid_size, block_size>>>(d_island_, population_ / 2,
                                            kNumVariables);
-  
   cudaMemcpy(island->data(), d_island_, population_ / 2 * sizeof(Creature),
              cudaMemcpyDeviceToHost);
   cpu_gpu_logger_->GPUOff();

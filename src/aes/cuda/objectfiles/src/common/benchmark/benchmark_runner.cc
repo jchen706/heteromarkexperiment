@@ -41,37 +41,37 @@
 #include "src/common/benchmark/benchmark_runner.h"
 
 void BenchmarkRunner::Run() {
-  time_measurement_->Start();
+  // time_measurement_->Start();
   benchmark_->Initialize();
-  time_measurement_->End({"Initialize"});
+  // time_measurement_->End({"Initialize"});
 
-  time_measurement_->Start();
+  // time_measurement_->Start();
   for (uint32_t i = 0; i < warm_up_time_; i++) {
     benchmark_->Run();
   }
-  time_measurement_->End({"WarmUp"});
+  // time_measurement_->End({"WarmUp"});
 
-  time_measurement_->Start();
+  // time_measurement_->Start();
   for (uint32_t i = 0; i < repeat_time_; i++) {
     benchmark_->Run();
   }
-  time_measurement_->End({"Run"});
+  // time_measurement_->End({"Run"});
 
   if (verification_mode_) {
-    time_measurement_->Start();
+    // time_measurement_->Start();
     benchmark_->Verify();
-    time_measurement_->End({"Verify"});
+    // time_measurement_->End({"Verify"});
   }
 
   if (!quiet_mode_) {
-    time_measurement_->Start();
+    // time_measurement_->Start();
     benchmark_->Summarize();
-    time_measurement_->End({"Summarize"});
+    // time_measurement_->End({"Summarize"});
   }
 
-  time_measurement_->Start();
+  // time_measurement_->Start();
   benchmark_->Cleanup();
-  time_measurement_->End({"Cleanup"});
+  // time_measurement_->End({"Cleanup"});
   printf("End of Cleanup \n");
 
   if (timing_mode_) {
