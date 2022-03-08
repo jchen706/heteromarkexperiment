@@ -43,6 +43,7 @@
 #include <cstdlib>
 #include <thread>
 #include <vector>
+#include <time.h>
 
 void EpCudaBenchmark::Initialize() {
   cudaSetDevice(0);
@@ -139,7 +140,7 @@ void EpCudaBenchmark::EvaluateGpu(std::vector<Creature> *island) {
   cpu_gpu_logger_->GPUOn();
   Evaluate_Kernel<<<grid_size, block_size>>>(d_island_, d_fitness_func_,
                                              population_ / 2, kNumVariables);
-  
+  cudaDeviceSynchronize();
   cudaMemcpy(island->data(), d_island_, population_ / 2 * sizeof(Creature),
              cudaMemcpyDeviceToHost);
   cpu_gpu_logger_->GPUOff();
@@ -160,9 +161,11 @@ void EpCudaBenchmark::MutateGpu(std::vector<Creature> *island) {
   dim3 block_size(64);
   dim3 grid_size((population_ / 2 * +block_size.x - 1) / block_size.x);
   cpu_gpu_logger_->GPUOn();
+
+
   Mutate_Kernel<<<grid_size, block_size>>>(d_island_, population_ / 2,
                                            kNumVariables);
-  
+  cudaDeviceSynchronize();
   cudaMemcpy(island->data(), d_island_, population_ / 2 * sizeof(Creature),
              cudaMemcpyDeviceToHost);
   cpu_gpu_logger_->GPUOff();
